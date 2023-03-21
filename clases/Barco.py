@@ -66,6 +66,8 @@ class Barco:
             self.hundido = False
             self.horizontal()
             self.instanciar
+            if len(self.instances) == len(Conventions.barcos_longitud):
+                break
 
 
 

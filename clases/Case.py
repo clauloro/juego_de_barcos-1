@@ -1,4 +1,6 @@
 from itertools import product
+from clases import Barco 
+from clases import Tablero
 from clases import Case
 from juego import CASO_AGUA, CASO_NO_JUGADO, CASO_TOCADO
 from clases.Conventions import (
