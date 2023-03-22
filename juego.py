@@ -3,6 +3,7 @@ import sys
 from clases import Barco
 from clases import Case
 from clases import Tablero
+from clases.Conventions import *
 
 from introducir import (
     solicitar_introducir_si_o_no,
@@ -23,8 +24,6 @@ ORIENTACIONES = (VERTICAL, HORIZONTAL)
 
 
 class Tablero:
-    def __init__(self):
-        self.casillas_jugadas = set()
 
     def ver(self):
         """Visualiza el estado del tablero"""
