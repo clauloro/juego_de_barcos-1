@@ -39,10 +39,10 @@ class Case(object):
     """Este método puede ser sobrecargado fácilmente"""
     self.nombre = generar_nombre_casilla(self.x, self.y)
 
-  def jugar(self):
+  def jugar_casilla(self):
     """Describe qué pasa cuando jugamos una casilla"""
     self.jugada = True
-    self.jugadas.add(self)
+    self.casillas_jugadas.add(self)
   
     if self.barco is not None:
         if len(self.barco.casillas - self.casillas_jugadas) == 0:
