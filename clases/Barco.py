@@ -2,6 +2,7 @@ from clases import Conventions
 from clases import Case
 from itertools import product, repeat
 from random import choice
+from juego import HORIZONTAL, ORIENTACIONES
 
 class Barco:
     
@@ -15,12 +16,12 @@ class Barco:
     
     def __init__(self, longitud):
         self.longitud = longitud
-        self.orientacion = choice(Conventions.ORIENTACIONES)
+        self.orientacion = choice(ORIENTACIONES)
         self.tocado = False
         self.hundido = False
     
     def horizontal(self):
-        if self.orientacion == Conventions.HORIZONTAL:
+        if self.orientacion == HORIZONTAL:
             rang = choice(range(self.num_lineas))
             primero = choice(range(self.num_columnas + 1 - Conventions.LONGITUDES_BARCOS))
             letra = self.num2l(rang)
@@ -48,7 +49,7 @@ class Barco:
                 self.instances.append(self)
                 # Informar la casilla que contiene un barco.
                 for casilla in self.casillas:
-                    casilla.contiene_barco = True
+                    casilla.barco = self
                 # Agregar estas casillas a las casillas ocupadas :
                 self.casillas_ocupadas.update(self.casillas)
                 # break relativo al "for existente in barcos:"
@@ -57,7 +58,7 @@ class Barco:
             # break relativo al "while True:"
             return
         
-    
+    @classmethod
     def generar_barcos(self):
         while True:
             self.longitud = choice(Conventions.barcos_longitud)
